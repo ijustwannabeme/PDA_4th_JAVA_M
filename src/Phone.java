@@ -1,11 +1,14 @@
-abstract class Phone {
+interface PhoneActions {
+    void buyPhone();
+}
+
+public abstract class Phone implements PhoneActions{
     String brand;
     String powerLogo;
     String owner;
 
-    public Phone(String owner, String powerLogo, String brand) {
+    public Phone(String owner, String brand) {
         this.owner = owner;
-        this.powerLogo = powerLogo;
         this.brand = brand;
     }
 
@@ -22,7 +25,8 @@ abstract class Phone {
 class iPhone extends Phone {
 
     public iPhone(String owner) {
-        super(owner, "@@@", "애플");
+        super(owner, "애플");
+        this.powerLogo = "@@@";
     }
 
     @Override
@@ -35,7 +39,8 @@ class iPhone extends Phone {
 class Samsung extends Phone {
 
     public Samsung(String owner) {
-        super(owner, "***", "삼송");
+        super(owner, "삼송");
+        this.powerLogo = "***";
     }
 
     @Override
